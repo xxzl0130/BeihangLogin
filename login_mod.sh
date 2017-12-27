@@ -49,7 +49,7 @@ login()
 	    result=$(curl -s -k -A "$useragent" -d "action=login&username=${username}&password={B}$(urlencode `echo -n $password|base64`)&ac_id=22&user_ip=&nas_ip=&user_mac=&save_me=1&ajax=1" "https://gw.buaa.edu.cn:803/beihanglogin.php?ac_id=22&amp;url=https://gw.buaa.edu.cn:803/beihangview.php")
 	    if [[ $result =~ "login_ok" ]]; then
 		    echo "Login success! Your internet connection has been activated."
-            light_on
+                    light_on
 #		    echo $(date)" Success" >> /tmp/login.txt
 		    break;
 	    else
