@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 username="Student ID No."
 password="Student ID PW"
 useragent="Opera/9.23 (Nintendo Wii; U; ; 1038-58; Wii Internet Channel/1.0; en)"
@@ -11,13 +11,13 @@ option=$1
 
 light_off()
 {
-#   The following line turns off the Internet LED of the Y1S router.
+    # The following line turns off the Internet LED of the Y1S router.
     /bin/echo "0" > /sys/class/leds/y1s:blue:internet/brightness
 }
 
 light_on()
 {
-#   The following line turns on the Internet LED of the Y1S router.
+    # The following line turns on the Internet LED of the Y1S router.
     /bin/echo "1" > /sys/class/leds/y1s:blue:internet/brightness
 }
 
@@ -29,7 +29,7 @@ logout()
         echo "Success"
     else
         echo $result
-    light_off
+        light_off
     fi
 }
 
@@ -44,19 +44,19 @@ login()
     light_off
     while [ $attempts -lt $retry ]
     do
-	    attempts=`expr $attempts + 1`
-	    echo "Sending login request... attempt "$attempts
-	    result=$(curl -s -k -A "$useragent" -d "action=login&username=${username}&password={B}$(urlencode `echo -n $password|base64`)&ac_id=22&user_ip=&nas_ip=&user_mac=&save_me=1&ajax=1" "https://gw.buaa.edu.cn:803/beihanglogin.php?ac_id=22&amp;url=https://gw.buaa.edu.cn:803/beihangview.php")
-	    if [[ $result =~ "login_ok" ]]; then
-		    echo "Login success! Your internet connection has been activated."
-                    light_on
-#		    echo $(date)" Success" >> /tmp/login.txt
-		    break;
-	    else
-		    echo $result
-#		    echo $(date)" "$result >> /tmp/login.txt
-		    sleep 3
-	    fi
+        attempts=`expr $attempts + 1`
+        echo "Sending login request... attempt "$attempts
+        result=$(curl -s -k -A "$useragent" -d "action=login&username=${username}&password={B}$(urlencode `echo -n $password|base64`)&ac_id=22&user_ip=&nas_ip=&user_mac=&save_me=1&ajax=1" "https://gw.buaa.edu.cn:803/beihanglogin.php?ac_id=22&amp;url=https://gw.buaa.edu.cn:803/beihangview.php")
+        if [[ $result =~ "login_ok" ]]; then
+            echo "Login success! Your internet connection has been activated."
+            light_on
+            # echo $(date)" Success" >> /tmp/login.txt
+            break;
+        else
+            echo $result
+            # echo $(date)" "$result >> /tmp/login.txt
+            sleep 3
+        fi
     done
 }
 
@@ -69,13 +69,13 @@ main()
 {
     case $option in
         login)
-            login;;
+        login;;
         logout)
-            logout;;
+        logout;;
         *)
             echo "Usage: \
             login \
-            logout" ;;
+        logout" ;;
     esac
 }
 
