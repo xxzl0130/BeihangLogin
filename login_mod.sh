@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 username="Student ID No."
 password="Student ID PW"
 useragent="Opera/9.23 (Nintendo Wii; U; ; 1038-58; Wii Internet Channel/1.0; en)"
