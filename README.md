@@ -10,21 +10,23 @@ This script requires ```bash```, ```base64``` and ```curl``` installed.
 
 If you want to login automatically when the openwrt/lede router boots, add the command to ```/overlay/upper/etc/rc.local```:
 
-```
-<blahblah>/login_mod.sh login
+```bash
+
+<some_dir>/login.sh login
 exit 0
+
 ```
 
-### Usage:
+### Usage
 
 #### login：
 
- ```./login.sh login ```
+```./login.sh login```
 
 #### logout：
 
- ```./login.sh logout ```
+```./login.sh logout```
 
- ## Python 3 Transcription
+## Python 3 Transcription
 
- ### Requirements: ```requests```
+Requirements: ```requests```
