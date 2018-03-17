@@ -16,6 +16,18 @@ def light_on():
     pass
 
 
+def check_network():
+    try:
+        res = rq.get("http://www.offer4u.cn/ping", timeout=3)
+        res.close()
+        if res.status_code == 204:
+            return True
+        return False
+
+    except:
+        return False
+
+
 def logout():
     print("Logging out...")
     ua_dict = {'User-Agent': USER_AGENT}

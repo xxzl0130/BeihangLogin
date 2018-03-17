@@ -21,6 +21,12 @@ light_on()
     /bin/echo "1" > /sys/class/leds/y1s:blue:internet/brightness
 }
 
+check_network()
+{
+    result=$(curl -s -o /dev/null -I -w "%{http_code}" http://www.offer4u.cn/ping --max-time 3)
+    echo $result
+}
+
 logout()
 {
     echo "Logging out..."
