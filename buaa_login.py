@@ -83,7 +83,7 @@ def get_info():
 
 
 def main():
-    option = sys.argv[1]
+    option = sys.argv[min(len(sys.argv) - 1,1)]
     if option == "login":
         login()
     elif option == "logout":
