@@ -2,6 +2,8 @@
 
 ```上网不涉密，涉密不上网！```
 
+由于系统更新，本项目已不可用
+
 ## The Original Project: ```login.sh```
 
 Hey mate, are you from BUAA? Me<sub>2</sub> , and maybe this script will help.
